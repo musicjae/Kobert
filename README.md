@@ -8,7 +8,7 @@
 
 | Color Inference | Train Loss | Test Accuracy(%)|Epochs| 
 |-------|-------|-------|-------|
-|kobert| 0.64 |58|1|
+|kobert| 0.64 |62|1|
 
 
 
@@ -37,7 +37,7 @@ $python test.py --mode=test
 $python run.py
 ```
 <h4> 5) Examples </h4>
-![](images/image1.png)
+![](images/image1.png)  
 ![](images/image2.png)
 
 
