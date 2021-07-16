@@ -21,11 +21,13 @@ $pip install -r requirements.txt
 
 <h4>2) How to train  </h4>
 - 로컬 환경에서 실행 시, 시간 매우 오래 걸림
+
 ``` shell
 $python train.py --mode=train
 ```
 <h4>3) How to test  </h4>
 - 로컬 환경에서 실행 시, 시간 오래 걸림
+
 ``` shell
 $python test.py --mode=test
 ```
