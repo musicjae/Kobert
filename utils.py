@@ -85,3 +85,9 @@ def test_sentences(model, sentences):
 
     return logits
 
+
+def custom_padsequence(seq, max_len):
+    if len(seq) < max_len:
+        seq += ([0]*(max_len-len(seq)))
+    return seq
+

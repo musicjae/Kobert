@@ -1,10 +1,10 @@
 import pandas as pd
 from transformers import BertTokenizer
 from hyperparameters import args
-from keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
+from utils import custom_padsequence
 
 # 판다스로 데이터셋 불러오기
 trainset = pd.read_csv('ratings_train.txt', sep='\t')
@@ -26,9 +26,8 @@ def preprocessing_dataset(dataset):
 
     # 토큰을 숫자 인덱스로 변환
     input_ids = [tokenizer.convert_tokens_to_ids(x) for x in tokenized_texts]
-
     # 문장을 MAX_LEN 길이에 맞게 자르고, 모자란 부분을 패딩 0으로 채움
-    input_ids = pad_sequences(input_ids, maxlen=args.max_len, dtype="long", truncating="post", padding="post")
+    input_ids = [custom_padsequence(input_id, max_len=args.max_len) for input_id in input_ids]
 
     # 어텐션 마스크 초기화
     attention_masks = []
